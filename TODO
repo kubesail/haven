@@ -1,7 +1,3 @@
-# Rename
- * deployment scripts to use new repository
- * favicon to use an "H"
-
 # Next Steps
  * During deploy, wait until instance_profile_exists: https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/IAM/Client.html#wait_until-instance_method
  * Load a backup (and respect version) if present on deployment
@@ -20,12 +16,11 @@
    * wait for instance_profile_exists??
 
 ## App
- * Try dual local storage + S3, see if content laods faster
+ * Permanent sessions, with idle timeout
  * Change images to -img- tags, with width and height for placeholders
+ * Try dual local storage + S3, see if content laods faster
  * Model validations!!
- * basic_auth check for images to support RSS
  * Export functionality
- * Delete user flow for deleting authors with live posts
 
 ## Reader
  * https://selfoss.aditu.de/ - FOSS, self-hosted
