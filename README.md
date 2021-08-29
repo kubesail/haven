@@ -1,12 +1,15 @@
 # Haven
 
-[Haven](https://havenweb.org) is a simple blog application (formerly called SimpleBlog) built with Ruby on Rails, some motivating philosophies:
+[Haven](https://havenweb.org) is a private blog application built with Ruby on Rails. Write what you want, create accounts for people you want to share with.  The following are some motivating philosophies:
 
+* Open-source. MIT License
 * Privacy-first.  This is for sharing with friends and family, not commercial endevors.  If you want a blog for your company, you probably want to use WordPress instead
-* Easy to use.
+* Easy to use.  Built-in web interface for managing users, customizing the blog, and writing/editing posts with markdown and live-preview.
 * Low-bandwidth friendly.  Images get downscaled to reduce page load times.  No javascript frameworks.  No ads or trackers.
-* Customizable.  If you want to add custom CSS, you can do that
-* No spam. There is no self-signup for users so there is no place for unauthorized users to impact your life
+* Customizable.  Add custom CSS or fonts.
+* No spam. There is no self-signup for users so there is no place for unauthorized users to impact your life.
+* Media support for images, videos, and audio
+* Private RSS feeds built-in.
 
 # Deployment
 ## AWS
@@ -38,5 +41,7 @@ Note, this requires a little bit more technical knowledge.  You know know how to
 * The script will give you your initial login information, enjoy your new blog!
 * Note, there are no backups setup.  You may want to backup the database (PostgreSQL) and uploaded images (`/home/pi/simpleblog/storage`).
 
+## Other Linux Systems
 
+Given the differences between Linux platforms I can't give fool-proof deployment instructions for every platform but take a look at the two bash scripts in `deploymentscripts/lib/bash/`.  They are the steps used for installing dependencies and the Haven application in the automated AWS deployment.  There may be differences depending on your distribution.
 

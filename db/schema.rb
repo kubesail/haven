@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_164806) do
+ActiveRecord::Schema.define(version: 2021_08_25_230143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,29 @@ ActiveRecord::Schema.define(version: 2021_01_13_164806) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
+  create_table "feed_entries", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "link"
+    t.string "guid"
+    t.datetime "published"
+    t.bigint "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_feed_entries_on_feed_id"
+    t.index ["guid"], name: "index_feed_entries_on_guid"
+    t.index ["published"], name: "index_feed_entries_on_published"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "last_update"
+    t.integer "status", default: 0
+  end
+
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,6 +102,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_164806) do
     t.string "css_hash"
     t.boolean "byline", default: false
     t.boolean "comments", default: false
+    t.string "font_hash"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +124,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_164806) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "feed_entries", "feeds"
   add_foreign_key "login_links", "users"
   add_foreign_key "posts", "users", column: "author_id"
 end
