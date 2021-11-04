@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Make sure to match this with the version used in ./Dockerfile
 ruby '2.7.2'
 
 # For configuration files
@@ -8,10 +9,6 @@ gem 'dotenv-rails', '2.7.5'
 
 # For parsing markdown
 gem 'commonmarker', '~> 0.20'
-
-# For making user stylesheet !important
-gem 'less', '~> 2.6.0'
-gem 'therubyracer', '~> 0.12.3' #undeclared dependency of less
 
 gem 'rb-readline'
 
